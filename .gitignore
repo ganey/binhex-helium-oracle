@@ -1,0 +1,5 @@
+.idea
+.DS_Store
+build/config/*
+build/root/pgid
+build/root/puid

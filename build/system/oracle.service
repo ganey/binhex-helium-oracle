@@ -1,0 +1,6 @@
+[Unit]
+Description=Helium Oracle
+
+[Service]
+Type=simple
+ExecStart=/root/submit.sh
