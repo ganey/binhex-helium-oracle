@@ -11,6 +11,7 @@ ADD build/root/*.sh /root/
 
 # add systemd/timer files to install app
 ADD build/system/* /usr/lib/systemd/system/
+RUN chmod 644 /usr/lib/systemd/system/oracle.timer
 
 # get release tag name from build arg
 ARG release_tag_name
@@ -23,6 +24,10 @@ RUN pacman -S --needed base-devel git clang rust cmake --noconfirm
 # make executable and run bash scripts to install app
 RUN chmod +x /root/*.sh && \
 	/bin/bash /root/install.sh "${release_tag_name}"
+
+	
+# cleanup
+RUN pacman -Ru clang rust cmake --noconfirm
 
 # run script to set uid, gid and permissions
 CMD ["/bin/bash", "/usr/local/bin/init.sh"]

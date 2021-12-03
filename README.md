@@ -1,5 +1,6 @@
 # Helium Oracle Container - based on binhex-arch-base
 
+## Note: This is currently a work in progress
 
 Mount the following dirs: 
  - /config - this contains a wallet.key
